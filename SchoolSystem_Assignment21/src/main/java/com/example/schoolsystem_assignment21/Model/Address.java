@@ -1,8 +1,7 @@
 package com.example.schoolsystem_assignment21.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -30,4 +29,8 @@ public class Address {
     @NotEmpty(message = "building number must not empty")
     @Column(columnDefinition = "varchar(20) not null")
     private String buildingNumber;
+    @OneToOne
+    @MapsId
+    @JsonIgnore
+    private Teacher teacher;
 }

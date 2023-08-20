@@ -33,4 +33,8 @@ public class Teacher {
     @NotNull(message = "Salary must not null")
     @Column(columnDefinition = "double not null")
     private Double salary;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "teacher")
+    @PrimaryKeyJoinColumn
+    private Address address;
 }
